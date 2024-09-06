@@ -6,8 +6,8 @@ vector<int> plusOne(vector<int> &digits)
 {
     int n = digits.size();
 
-    //--1 is faster than 1--
-    for (int i = n - 1; i >= 0; --i) // starts at the end of the vector/array
+    // *--1 is faster than 1--
+    for (int i = n - 1; i >= 0; --i) // *starts at the end of the vector/array
     {
         if (digits[i] < 9)
         {
