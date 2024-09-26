@@ -6,7 +6,7 @@ using namespace std;
 void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
 {
 
-    for (int j = 0, i = m; j < n; j++)
+    for (int j = 0, i = m; j < n; j++) //*important loop parameter
     {
         nums1[i] = nums2[j];
         i++;
