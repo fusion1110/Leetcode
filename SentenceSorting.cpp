@@ -4,15 +4,10 @@
 #include <vector>
 using namespace std;
 
-void sortSentence(string s)
+string sortSentence(string s)
 {
     stringstream ss(s);
-
     vector<string> v;
-    // using while loop until the getline condition is
-    // satisfied
-    // ' ' represent split the string whenever a space is
-    // found in the original string
 
     while (getline(ss, s, ' '))
     {
@@ -23,24 +18,28 @@ void sortSentence(string s)
     {
         for (int j = 0; j < v.size() - i - 1; j++)
         {
-            // Compare the last characters (which are numbers)
             if (v[j].back() > v[j + 1].back())
             {
-                swap(v[j], v[j + 1]);  
+                swap(v[j], v[j + 1]);
             }
         }
     }
-    cout << endl;
+
+    string result = "";
     for (int i = 0; i < v.size(); i++)
     {
-        v[i].pop_back(); // accessing the last char of each element ie, the number
-        cout << v[i] << " ";
+        v[i].pop_back();
+        result += v[i];
+        if (i < v.size() - 1)
+            result += " ";
     }
+
+    return result;
 }
 
 int main()
 {
 
-    sortSentence("is2 sentence4 This1 a3");
+    cout << sortSentence("is2 sentence4 This1 a3");
     return 0;
 }
