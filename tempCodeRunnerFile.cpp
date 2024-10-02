@@ -1,8 +1,13 @@
-for (int j = 0; j < prices.size(); j++)
-    {
-        if (prices[j] < minPrice)
-        {
-            minPrice = prices[j];
-            min_day = j;
-        }
-    }
+ // priority_queue<int> pq;
+
+    // for (auto n : count.)
+    // {
+    //     pq.push(n);
+    // }
+    // cout << "Priority Queue\n";
+
+    // while (!pq.empty())
+    // {
+    //     cout << pq.top() << " ";
+    //     pq.pop();
+    // }

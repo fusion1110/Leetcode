@@ -2,6 +2,8 @@
 #include <unordered_map>
 using namespace std;
 
+//another method is to sort it but its time complexity is O(nlogn)
+
 bool isAnagram(string s, string t)
 {
     unordered_map<char, int> count;
