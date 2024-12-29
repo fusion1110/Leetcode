@@ -1,50 +1,33 @@
-#include <iostream>
-#include <vector>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 
 int maxProfit(vector<int> &prices)
 {
-    int minPrice = INT_MAX;
-    int min_day = 0;
-    int maxPrice = INT_MIN;
-    int max_day = 0;
-
-    for (int j = 0; j < prices.size() - 1; j++)
-    {
-        if (prices[j] < minPrice)
-        {
-            minPrice = prices[j];
-            min_day = j;
-        }
-    }
-    cout << minPrice << endl;
-
-    for (int i = min_day; i < prices.size(); i++)
-    {
-        if (prices[i] > maxPrice)
-        {
-            maxPrice = prices[i];
-            max_day = i;
-        }
-    }
-    cout << maxPrice << endl;
-
-    if (min_day < max_day)
-    {
-        int result = maxPrice - minPrice;
-        return result;
-    }
-
-    else
-    {
+    if (prices.empty())
         return 0;
+
+    int minPrice = INT_MAX;
+    int maxProfit = 0;
+
+    for (int price : prices)
+    {
+
+        if (price < minPrice)
+        {
+            minPrice = price;
+        }
+        else
+        {
+            maxProfit = max(maxProfit, price - minPrice);
+        }
     }
+
+    return maxProfit;
 }
 
 int main()
 {
-    vector<int> prices = {3, 2, 6, 5, 0, 3};
+    vector<int> prices = {2,4,1};
     cout << maxProfit(prices);
     cout << endl;
 
