@@ -10,19 +10,22 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {};
 };
 
+// Function to reorder the list
 void reorderList(ListNode *head)
 {
+    if (!head || !head->next || !head->next->next) return; // Base case for short lists
+    
     ListNode *slow = head;
     ListNode *fast = head->next;
 
-    // finding middle
+    // Finding middle
     while (fast && fast->next)
     {
         slow = slow->next;
-        fast = fast->next->next; // moves by 2
+        fast = fast->next->next; // Moves by 2
     }
 
-    // reverse 2nd half
+    // Reverse 2nd half
     ListNode *second = slow->next;
     slow->next = nullptr;
     ListNode *prev = nullptr;
@@ -35,6 +38,7 @@ void reorderList(ListNode *head)
         second = temp;                 // Move 'second' forward
     }
 
+    // Merge two halves
     ListNode *first = head;
     ListNode *curr = prev;
     while (curr)
@@ -50,8 +54,44 @@ void reorderList(ListNode *head)
     }
 }
 
+// Helper function to print a linked list
+void printList(ListNode *head)
+{
+    while (head)
+    {
+        cout << head->val << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
+    // Create the linked list: 1 -> 2 -> 3 -> 4 -> 5
+    ListNode *head = new ListNode(1);
+    head->next = new ListNode(2);
+    head->next->next = new ListNode(3);
+    head->next->next->next = new ListNode(4);
+    head->next->next->next->next = new ListNode(5);
+
+    // Print original list
+    cout << "Original List: ";
+    printList(head);
+
+    // Reorder the list
+    reorderList(head);
+
+    // Print reordered list
+    cout << "Reordered List: ";
+    printList(head);
+
+    // Clean up memory
+    while (head)
+    {
+        ListNode *temp = head;
+        head = head->next;
+        delete temp;
+    }
 
     return 0;
 }
