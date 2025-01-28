@@ -1,5 +1,2 @@
-  // if (temperatures[j] > temperatures[i])
-            // {
-                
-            // }
-            // count = 0;
+
+    // subRoot->right = new TreeNode(5)

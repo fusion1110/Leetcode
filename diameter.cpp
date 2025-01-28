@@ -10,6 +10,7 @@ struct TreeNode
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
 int dfs(TreeNode *root, int &res)
 {
     if (!root)
@@ -27,7 +28,6 @@ int diameterOfBinaryTree(TreeNode *root)
     dfs(root, res);
     return res;
 }
-
 
 int main()
 {
