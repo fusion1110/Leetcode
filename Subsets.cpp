@@ -31,6 +31,18 @@ vector<vector<int>> subsets(vector<int> &nums)
 
 int main()
 {
+    vector<int> nums = {1, 2, 3}; // Example input
+    vector<vector<int>> result = subsets(nums);
 
+    cout << "Subsets are:\n";
+    for (const auto &subset : result)
+    {
+        cout << "{";
+        for (int num : subset)
+        {
+            cout << num << " ";
+        }
+        cout << "}\n";
+    }
     return 0;
 }
