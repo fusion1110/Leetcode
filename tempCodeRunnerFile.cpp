@@ -1,2 +1,8 @@
 
-    // subRoot->right = new TreeNode(5)
+// void removeLoop(ListNode *head)
+// {
+//     if (hasCycle(head))
+//     {
+//         cout <<
+//     }
+// }
