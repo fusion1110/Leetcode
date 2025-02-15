@@ -5,19 +5,19 @@ int lastStoneWeight(vector<int> &stones)
 {
     priority_queue<int> pq;
 
-    for (auto &n : stones)
+    for (int n : stones)
     {
         pq.push(n);
     }
 
-    while (pq.size() > 1) // Fix: Ensure at least two elements exist
+    while (pq.size() > 1) 
     {
         int x = pq.top();
         pq.pop();
 
         int y = pq.top();
         pq.pop();
-
+        
         if (x != y) // Only push if they are not equal
         {
             pq.push(abs(x - y));
@@ -34,3 +34,8 @@ int main()
 
     return 0;
 }
+
+//* Problem without if statement
+// You always push abs(x - y) back into the priority queue, even if x == y.
+// If x == y, both stones are destroyed, and nothing should be pushed back.
+// This could lead to an unnecessary 0 in the heap, causing incorrect results.

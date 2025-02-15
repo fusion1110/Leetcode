@@ -3,8 +3,12 @@ using namespace std;
 
 int findKthLargest(vector<int> &nums, int k)
 {
-    priority_queue<int, vector<int>, greater<int>> pq; 
 
+    //* using max heap: space-> O(n), time-> O(nlogn)
+    // priority_queue<int> pq; 
+    
+    //* using min heap: space-> O(k), time-> O(nlogk)
+    priority_queue<int, vector<int>, greater<int>> pq; 
     for (int num : nums)
     {
         pq.push(num);
