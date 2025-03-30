@@ -1,0 +1,5 @@
+# Allow only .cpp files
+!*.cpp
+
+# Exclude the .gitignore file itself (optional)
+!.gitignore
