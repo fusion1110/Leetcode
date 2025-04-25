@@ -16,8 +16,9 @@ void backtrack(int i, string curString, string &digits)
     }
 
     string chars = DigitToChar[digits[i] - '0'];
-    for(char c : chars){
-        backtrack(i+1, curString + c, digits);
+    for (char c : chars)
+    {
+        backtrack(i + 1, curString + c, digits);
     }
 }
 
@@ -26,9 +27,11 @@ vector<string> letterCombinations(string digits)
     if (digits.empty())
         return res;
     backtrack(0, "", digits);
+    return res;
 }
 
-int main() {
+int main()
+{
     string input;
     cout << "Enter a string of digits (2-9): ";
     cin >> input;
@@ -36,7 +39,8 @@ int main() {
     vector<string> combinations = letterCombinations(input);
 
     cout << "All possible letter combinations:\n";
-    for (const string &s : combinations) {
+    for (const string &s : combinations)
+    {
         cout << s << " ";
     }
     cout << endl;
