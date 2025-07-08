@@ -16,8 +16,8 @@ int helper(vector<int> &nums)
 
 int rob(vector<int> &nums)
 {
-    vector<int> including1(nums.begin(), nums.end() - 1);
-    vector<int> excluding1(nums.begin() + 1, nums.end());
+    vector<int> including1(nums.begin(), nums.end() - 1); // Include the first house and exclude the last
+    vector<int> excluding1(nums.begin() + 1, nums.end()); // Exclude the first house and include the last
 
     return max(nums[0], max(helper(including1), helper(excluding1)));
 }
