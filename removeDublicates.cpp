@@ -2,25 +2,39 @@
 #include <vector>
 using namespace std;
 
+// int removeDuplicates(vector<int> &nums)
+// {
+//     int n = nums.size();
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = i + 1; j < n;)
+//         {
+//             if (nums[i] == nums[j])
+//             {
+//                 nums.erase(nums.begin() + j);
+//                 n--;
+//             }
+//             else
+//             {
+//                 j++;
+//             }
+//         }
+//     }
+//     return n;
+// }
+
+
 int removeDuplicates(vector<int> &nums)
 {
-    int n = nums.size();
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i + 1; j < n;)
-        {
-            if (nums[i] == nums[j])
-            {
-                nums.erase(nums.begin() + j);
-                n--;
-            }
-            else
-            {
-                j++;
-            }
+   
+    int i= 0;
+    for(int j = 1; j < nums.size(); j++){
+        if(nums[j] != nums[i]){
+            i++;
+            nums[i] = nums[j];
         }
     }
-    return n;
+    return i+1;
 }
 
 int main()
