@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int getSum(int a, int b){
-  while(b != 0){
+int getSum(int a, int b) {
+  while (b != 0) {
     int carry = (a & b) << 1;
     a ^= b;
     b = carry;
@@ -10,8 +10,4 @@ int getSum(int a, int b){
   return a;
 }
 
-int main(){
-  cout<<getSum(-3, -5)<<endl;
-}
-
-
+int main() { cout << getSum(-3, -5) << endl; }

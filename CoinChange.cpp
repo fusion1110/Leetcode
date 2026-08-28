@@ -36,27 +36,24 @@ typedef long long ll;
 // }
 
 // iterative
-int coinChange(vector<int>& coin, int amount)
-{
-    vector<int> value(amount + 1, INT_MAX);
-    value[0] = 0;
+int coinChange(vector<int> &coin, int amount) {
+  vector<int> value(amount + 1, INT_MAX);
+  value[0] = 0;
 
-    for (int i = 1; i <= amount; i++)
-    {
-        for(auto c : coin){
-            if(i - c >= 0  && value[i - c] != INT_MAX){
-                value[i] = min(value[i], value[i-c]+1);
-            }
-        }
+  for (int i = 1; i <= amount; i++) {
+    for (auto c : coin) {
+      if (i - c >= 0 && value[i - c] != INT_MAX) {
+        value[i] = min(value[i], value[i - c] + 1);
+      }
     }
+  }
 
-    return (value[amount] == INT_MAX) ? -1 : value[amount];
+  return (value[amount] == INT_MAX) ? -1 : value[amount];
 }
 
-int main()
-{
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    return 0;
+  return 0;
 }
