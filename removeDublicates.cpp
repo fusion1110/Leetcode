@@ -23,28 +23,24 @@ using namespace std;
 //     return n;
 // }
 
+int removeDuplicates(vector<int> &nums) {
 
-int removeDuplicates(vector<int> &nums)
-{
-   
-    int i= 0;
-    for(int j = 1; j < nums.size(); j++){
-        if(nums[j] != nums[i]){
-            i++;
-            nums[i] = nums[j];
-        }
+  int i = 0;
+  for (int j = 1; j < nums.size(); j++) {
+    if (nums[j] != nums[i]) {
+      i++;
+      nums[i] = nums[j];
     }
-    return i+1;
+  }
+  return i + 1;
 }
 
-int main()
-{
-    vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-    cout << removeDuplicates(nums) << endl;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        cout << nums[i] << " ";
-    }
+int main() {
+  vector<int> nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+  cout << removeDuplicates(nums) << endl;
+  for (int i = 0; i < nums.size(); i++) {
+    cout << nums[i] << " ";
+  }
 
-    return 0;
+  return 0;
 }

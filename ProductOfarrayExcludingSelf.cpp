@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+/*
 vector<int> productExceptSelf(vector<int> &nums)
 {
     int n = nums.size();
@@ -13,7 +13,7 @@ vector<int> productExceptSelf(vector<int> &nums)
         {
             if (i != j)
             {
-                product *= nums[j];  
+                product *= nums[j];
             }
         }
         result[i] = product;
@@ -21,15 +21,33 @@ vector<int> productExceptSelf(vector<int> &nums)
 
     return result;
 }
+*/
 
-int main()
-{
-    vector<int> nums = {1, 2, 3, 4};
-    vector<int> result = productExceptSelf(nums);
+vector<int> productExceptSelf(vector<int> &nums) {
+  int n = nums.size();
 
-    for (int res : result)
-    {
-        cout << res << endl;
-    }
-    return 0;
+  vector<int> res(n, 1);
+
+  int prefix = 1, postfix = 1;
+
+  for (int i = 0; i < n; i++) {
+    res[i] = prefix;
+    prefix *= nums[i];
+  }
+
+  for (int i = n - 1; i >= 0; i--) {
+    res[i] *= postfix;
+    postfix *= nums[i];
+  }
+
+  return res;
+}
+int main() {
+  vector<int> nums = {1, 2, 3, 4};
+  vector<int> result = productExceptSelf(nums);
+
+  for (int res : result) {
+    cout << res << endl;
+  }
+  return 0;
 }

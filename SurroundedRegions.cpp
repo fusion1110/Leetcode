@@ -1,14 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve(vector<vector<char>>& board) {
-        
-    }
+void solve(vector<vector<char>> &board) {}
 
-
-int main() {
-    
-    
-
-    return 0;
-}
+int main() { return 0; }
